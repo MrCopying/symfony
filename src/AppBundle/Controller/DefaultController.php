@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\AppBundle;
+use AppBundle\Entity\FeedBack;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -38,10 +39,21 @@ class DefaultController extends Controller
      */
     public function contactAction(Request $request)
     {
-        $b = $this->getParameter('my_param');
-        dump($b);
-        $name = $request->get('name');
-        dump($name);
+//        $b = $this->getParameter('my_param');//читаем через контейнер(хелпер) парамерты с конфига(ямл)
+//        dump($b);
+//        $name = $request->get('name');// get параметр запроса
+//        dump($name);
 
+        /* Fixture using!
+        $em = $this->get('doctrine')->getManager();
+        $feedBack = (new FeedBack())
+            ->setName('Mike')
+            ->setEmail('help@me.net')
+            ->setIpAddress('127.0.0.1')
+            ->setMessage('Hello Symfony!')
+            ->setCreated(new \DateTime());
+        $em->persist($feedBack);
+        $em->flush();
+        */
     }
 }
